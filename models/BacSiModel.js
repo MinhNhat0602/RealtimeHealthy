@@ -1,31 +1,32 @@
 const db = require('../models/DataBaseModel');
+const Khoa = require('../models/KhoaModel');
 
 class BacSi {
-    constructor(Id, TenDangNhap, Email, MatKhau, QuyenTruyCapId, NgayTao, NgayChinhSua) {
+    constructor(Id, MaBacSi, TenBacSi, NamSinh, GioiTinh, Email, KhoaId) {
         this.Id = Id;
-        this.TenDangNhap = TenDangNhap;
+        this.MaBacSi = MaBacSi;
+        this.TenBacSi = TenBacSi;
+        this.NamSinh = NamSinh;
+        this.GioiTinh = GioiTinh;
         this.Email = Email;
-        this.MatKhau = MatKhau;
-        this.QuyenTruyCapId = QuyenTruyCapId;
-        this.NgayTao = NgayTao;
-        this.NgayChinhSua = NgayChinhSua;
+        this.KhoaId = KhoaId;
     }
 
     static async danhSachBacSi() {
-        let sql = "SELECT * FROM tblBacSi";
+        let sql = "SELECT * FROM tblbacsi";
         const [rows] = await db.query(sql);
 
         return rows;
     }
 
-    static async layBacSiTheoTenDangNhap(tenDangNhap){
-        const sql = "SELECT * FROM tblBacSi WHERE TenDangNhap = ? LIMIT 1";
-        const [row] = await db.query(sql, [tenDangNhap]);
+    static async layBacSiTheoMa(maBacSi){
+        const sql = "SELECT * FROM tblbacsi WHERE MaBacSi = ?";
+        const [row] = await db.query(sql, [maBacSi]);
         return row;
     }
 
-    static async layQuyenTruyCapTheoId(id){
-        const sql = "SELECT * FROM tblBacSi, tblquyentruycap WHERE tblBacSi.QuyenTruyCapId =?";
+    static async layTenKhoaTheoId(id){
+        const sql = "SELECT * FROM tblbacsi, tblkhoa WHERE tblbacsi.KhoaId =?";
         const [row] = await db.query(sql, [id]);
         return row;
     }

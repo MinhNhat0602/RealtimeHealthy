@@ -14,7 +14,8 @@
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
-            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 shadow-lg me-1" style="background-color: #fff !important;">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 shadow-lg me-1"
+                style="background-color: #fff !important;">
                 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100">
 
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -22,32 +23,38 @@
 
                         <li class="nav-item">
                             <a href="/" class="nav-link align-middle px-0 link-dark fw-bold">
-                                <i class="fs-4 bi-house-door"></i> <span class="ms-1 d-none d-sm-inline">TRANG CHỦ</span>
+                                <i class="fs-4 bi-house-door"></i> <span class="ms-1 d-none d-sm-inline">TRANG
+                                    CHỦ</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/benhnhan" class="nav-link align-middle px-0 link-dark fw-bold">
-                                <i class="fs-4 bi bi-person-rolodex"></i> <span class="ms-1 d-none d-sm-inline">QUẢN LÝ BỆNH NHÂN</span>
+                                <i class="fs-4 bi bi-person-rolodex"></i> <span class="ms-1 d-none d-sm-inline">QUẢN LÝ
+                                    BỆNH NHÂN</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/bacsi" class="nav-link align-middle px-0 link-dark fw-bold">
-                                <i class="fs-4 bi bi-briefcase"></i> <span class="ms-1 d-none d-sm-inline">QUẢN LÝ BÁC SĨ</span>
+                                <i class="fs-4 bi bi-briefcase"></i> <span class="ms-1 d-none d-sm-inline">QUẢN LÝ BÁC
+                                    SĨ</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/nguoidung" class="nav-link align-middle px-0 link-dark fw-bold">
-                                <i class="fs-4 bi bi-person"></i> <span class="ms-1 d-none d-sm-inline">QUẢN LÝ TÀI KHOẢN</span>
+                                <i class="fs-4 bi bi-person"></i> <span class="ms-1 d-none d-sm-inline">QUẢN LÝ TÀI
+                                    KHOẢN</span>
                             </a>
-                        </li>   
+                        </li>
                         <li class="nav-item">
                             <a href="/phancong" class="nav-link align-middle px-0 link-dark fw-bold">
-                                <i class="fs-4 bi bi-calendar"></i> <span class="ms-1 d-none d-sm-inline">LỊCH PHÂN CÔNG</span>
+                                <i class="fs-4 bi bi-calendar"></i> <span class="ms-1 d-none d-sm-inline">LỊCH PHÂN
+                                    CÔNG</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/benhan" class="nav-link align-middle px-0 link-dark fw-bold">
-                                <i class="fs-4 bi bi-clipboard-pulse"></i> <span class="ms-1 d-none d-sm-inline">BỆNH ÁN</span>
+                                <i class="fs-4 bi bi-clipboard-pulse"></i> <span class="ms-1 d-none d-sm-inline">BỆNH
+                                    ÁN</span>
                             </a>
                         </li>
 
@@ -56,7 +63,8 @@
                             <div class="fixed-bottom m-3 fw-bold link-dark">
                                 <i class="bi bi-person-fill"></i>
                                 <%=un%> |
-                                    <a style="text-decoration: none" class="text-danger fw-bold" href="/thoat">Đăng Xuất</a>
+                                    <a style="text-decoration: none" class="text-danger fw-bold" href="/thoat">Đăng
+                                        Xuất</a>
                             </div>
                         </li>
                     </ul>
@@ -71,44 +79,68 @@
                         <div class="card-body shadow-sm rounded-4">
                             <div class="col px-1 pt-4 ms-2">
                                 <form action="" method="get" class="d-flex w-50 ms-2 ps-2" role="search">
-                                    <input name="txttimkiem" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <input name="txttimkiem" class="form-control me-2" type="search"
+                                        placeholder="Search" aria-label="Search">
                                     <button class="btn btn-warning" type="submit">Search</button>
                                 </form>
                             </div>
-                            <a href="/thembacsi" class="btn btn-primary mb-2 me-4" style="float: right;"><i class="bi bi-plus-circle me-2"></i>Thêm Mới</a>
+                            <a href="/thembacsi" class="btn btn-primary mb-2 me-4" style="float: right;"><i
+                                    class="bi bi-plus-circle me-2"></i>Thêm Mới</a>
                             <table class="table">
                                 <thead>
                                     <tr class="text-center">
                                         <th scope="col">STT</th>
                                         <th scope="col">Mã Bác Sĩ</th>
                                         <th scope="col">Tên Bác Sĩ</th>
+                                        <th scope="col">Khoa</th>
                                         <th scope="col">Thao Tác</th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-group-divider text-center">
-                                    <% for (let [index,bacsi] of listbacsi.entries() ) { %>
+                                    <% for (let [index,tblbacsi] of listbacsi.entries() ) { %>
                                         <tr>
                                             <td>
                                                 <%= index+1 %>
                                             </td>
+
                                             <td>
-                                                <%= bacsi.MaBacSi %>
+                                                <%= tblbacsi.MaBacSi %>
                                             </td>
+
                                             <td>
-                                                <%= bacsi.TenBacSi %>
+                                                <%= tblbacsi.TenBacSi %>
                                             </td>
-                                            <td><a href="/xembacsi?mabacsi=<%= bacsi.MaBacSi %>"class="btn btn-warning"><i class="bi bi-eye"></i></a></td>
+
+                                            
+                                                <% if(tblbacsi.KhoaId==1){%>
+                                                    <td>Khoa Nội</td>
+                                                <% } else if(tblbacsi.KhoaId==2){ %>
+                                                    <td>Khoa Ngoại</td>
+                                                    <% } else if(tblbacsi.KhoaId==3){ %>
+                                                        <td>Khoa Phụ Sản</td>
+                                                        <% } else if(tblbacsi.KhoaId==4){ %>
+                                                            <td>Khoa Nhi</td>
+                                                            <% } else if(tblbacsi.KhoaId==5){ %>
+                                                                <td>Khoa Cấp Cứu</td>
+                                                                <% } else { %>
+                                                                    <td>Khoa Răng Hàm Mặt</td>
+                                                                    <% } %>
+                                            <td>                
+                                                <a href="/xembacsi?mabacsi=<%= tblbacsi.MaBacSi %>"
+                                                    class="btn btn-warning"><i
+                                                        class="bi bi-eye"></i></a>
+                                            </td>
                                         </tr>
                                         <% } %>
                                 </tbody>
                             </table>
-                            <ul class="pagination justify-content-center pt-2" style="margin:20px 0">
+                            <!-- <ul class="pagination justify-content-center pt-2" style="margin:20px 0">
                                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
 

@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const patientCtrl = require('../controllers/patient.controller');
 const userCtrl = require('../controllers/user.controller');
+const doctorCtrl = require('../controllers/doctor.controller');
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
@@ -17,6 +18,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 module.exports = function (app) {
+    app.get('/bacsi', doctorCtrl.getDoctor);
     app.get('/themBenhNhan', (req, res) => {
         res.render('themBenhNhan', { un: req.session.username });
     });
